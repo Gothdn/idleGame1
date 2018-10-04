@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src=".//js//main.js"></script>
+
+		<link rel="stylesheet" href="prototype.css">
+	</head>
+
+	<body ng-app="main" ng-controller="mainCtrl">
+		<div class="containter">
+			<div class="row">
+				<span class="col-sm-6">
+					<table class="table">
+						<tr>
+							<th>Name</th>
+							<th>Level</th>
+							<th>upCost</th>
+							<th>money/s</th>
+							<th>Progress</th>
+						<tr>
+						<tr ng-repeat = "r in resList">
+							<td>{{r.name}}</td>
+							<td>{{r.curLvl}}</td>
+							<td>{{toMoney(r.upCost)}}</td>
+							<td>{{toMoney(r.productPerSecond)}}</td>
+							<td><button class="btn btn-light" ng-click="r.upgradeLvl()" ng-disabled="!r.canUpgradeLvl()">LvlUp</button></td>
+							<td><button class="btn btn-light" ng-click="r.upgradeMax()" ng-disabled="!r.canUpgradeLvl()">LvlMax</button></td>
+						</tr>
+					</table>
+				</span>
+				
+				<span class="col-sm-6">
+					<div><b>Upgrade</b></div>
+					<button class="btn btn-light">Test</button>
+				</span>
+			</div>
+		</div>
+		
+		<span>Money: {{toMoney(money)}}</span>
+		<button ng-click="test()">test</button>
+	</body>
+</html>
