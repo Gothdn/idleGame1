@@ -278,9 +278,7 @@ app.controller("mainCtrl", function($scope, $interval) {
 		$scope.curTick += _TICK;
 		$scope.resourceList.forEach(function(r) {
 			r.update();
-			$scope.resourceList.forEach(function (r) {
-				r.calculateUpgradeMax();
-			});
+			r.calculateUpgradeMax();
 		});
 	};
 	
